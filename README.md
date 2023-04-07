@@ -7,4 +7,4 @@
 * once into github
   * can be pulled into quarto directly
   * can be pulled into grafana via modified airflow job
-    * replace `imars.usf.edu/public_html/...` with `raw.github.com/...` in curl command  
+    * TODO: replace `imars.usf.edu/public_html/...` with `raw.github.com/...` in curl command  
