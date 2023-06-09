@@ -1,8 +1,14 @@
 #!/bin/bash
 # upload .csv files to github
+# This can be run from a cronjob.
+# To do so: add a line like the following to your crontab
+#    using the `crontab -e` command.
+# 0 * * * * * ~/extracted_sat_ts_gom_csv_data/upload_files.sh
 
-cd /srv/imars-objects/fgb/EXT_TS_MODA/OC && \
+FILEDIR=/srv/imars-objects/tpa_pgs/rois/gom/extracted_sat_ts_gom_csv_data/data/
+
+cd $FILEDIR && \
   git pull && \
-  git add FGBdbv2_chlor_a_TS_MODA_daily_EFG.csv && \
+  git add ./data/*.csv && \
   git commit -m 'auto-upload csv files' && \
   git push
