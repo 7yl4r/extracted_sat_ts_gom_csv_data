@@ -5,7 +5,7 @@
 #    using the `crontab -e` command.
 # 0 * * * * * ~/extracted_sat_ts_gom_csv_data/upload_files.sh
 
-FILEDIR=/srv/imars-objects/tpa_pgs/rois/gom/extracted_sat_ts_gom_csv_data/data/
+FILEDIR=/srv/imars-objects/tpa_pgs/rois/gom/extracted_sat_ts_gom_csv_data/
 
 cd $FILEDIR && \
   git pull && \
