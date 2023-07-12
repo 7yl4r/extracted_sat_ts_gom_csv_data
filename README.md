@@ -21,13 +21,13 @@ influx["Dashboard InfluxDB"]
 grafana["mbon-dashboard-server \n dashboard display"]
 
 sat_products 
-  -- "nightly MATLAB \n extraction cronjob \n(IMaRS)" --> 
+  -- "[daily] MATLAB \n extraction cronjob \n(IMaRS)" --> 
 imars_csv
-  -- "nightly git autocommit + push" -->
+  -- "[daily] git autocommit + push" -->
 github_csv
-  -- "mbon-dashboard-server airflow job" -->
+  -- "mbon-dashboard-server [daily] airflow job" -->
 influx
-  -- "Dashboard query" -->
+  -- "Dashboard query ([on-demand])" -->
 grafana
 
 subgraph Legend
