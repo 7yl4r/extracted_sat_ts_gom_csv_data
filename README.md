@@ -14,24 +14,26 @@
 ```mermaid
 graph TD
 
-sat_products["Satellite Product .nc files \n (IMaRS, CoastWatch, etc)"]
-imars_csv["time-series extracted \n for each RoI from each \n set of .nc files \n (IMaRS)"];
+upstream_products["L2 files from NASA+ESA \n (CoastWatch, etc)"]
+sat_products["Mapped satellite Product .nc files"]
+imars_csv["time-series extracted .csv \n for each RoI from each \n set of .nc files \n (IMaRS)"];
 github_csv["extracted_sat_ts_gom_csv_data \n git repo \n (GitHub)"]
 influx["Dashboard InfluxDB"]
 grafana["mbon-dashboard-server \n dashboard display"]
 
+upstream_products
+  -- "nightly fetch script \n (dotis@seashell crontab)" -->
 sat_products 
-  -- "[daily] MATLAB \n extraction cronjob \n(IMaRS)" --> 
+  -- "nightly MATLAB \n extraction cronjob \n(dotis@seashell crontab)" --> 
 imars_csv
-  -- "[daily] git autocommit + push" -->
+  -- "nightly git autocommit + push \n(dotis@manglillo crontab)" -->
 github_csv
-  -- "mbon-dashboard-server [daily] airflow job" -->
+  -- "mbon-dashboard-server airflow job" -->
 influx
-  -- "Dashboard query ([on-demand])" -->
+  -- "Dashboard query" -->
 grafana
 
 subgraph Legend
     example["data description \n (stored location)"] -- "job description" --> B
 end
-
 ```
