@@ -4,7 +4,7 @@
 # To do so: add a line like the following to your crontab
 #    using the `crontab -e` command.
 # 0 * * * * * ~/extracted_sat_ts_gom_csv_data/upload_files.sh
-
+echo ============================================================
 FILEDIR=/srv/imars-objects/tpa_pgs/rois/gom/extracted_sat_ts_gom_csv_data/
 
 set -e
@@ -13,7 +13,6 @@ set -e
 GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no"
 
 cd $FILEDIR
-echo ============================================================
 echo pulling repo to avoid merge conflicts...
 git pull 
 echo adding csv files to local git...
