@@ -10,7 +10,7 @@ FILEDIR=/srv/imars-objects/tpa_pgs/rois/gom/extracted_sat_ts_gom_csv_data/
 set -e
 
 # this setting helps avoid git asking for user input
-GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no"
+export GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no"
 
 cd $FILEDIR
 echo pulling repo to avoid merge conflicts...
